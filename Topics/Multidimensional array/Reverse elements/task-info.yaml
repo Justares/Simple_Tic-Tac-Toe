@@ -1,0 +1,20 @@
+type: code
+files:
+- name: src/Main.java
+  visible: true
+  text: |-
+    class ArrayOperations {
+        public static void reverseElements(int[][] twoDimArray) {
+            // write your code here
+
+        }
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/12441#comment
+status: Failed
+feedback:
+  message: "Failed test #1 of 4. Runtime error\n\nError:\nException in thread \"main\"\
+    \ java.lang.ArrayIndexOutOfBoundsException: Index 3 out of bounds for length 2\n\
+    \tat ArrayOperations.reverseElements(Main.java:11)\n\tat Main.main(Main.java:51)\n"
+  time: Tue, 14 Sep 2021 18:25:15 UTC
+record: -1
