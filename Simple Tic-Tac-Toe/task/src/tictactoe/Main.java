@@ -8,25 +8,31 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         String cells = scanner.nextLine();
+        char[][] feld = new char[3][3];
+        feld[0][0] = cells.charAt(1);
+        createAndPrintField(feld, cells);
 
+        userInput(scanner,feld);
 
+        for (int i = 0; i < feld.length; i++) {
+            for (int k = 0; k < feld.length; k++) {
+                System.out.print(" " + feld[i][k] + " ");
 
-        System.out.println("---------");
-        System.out.println("| " + cells.charAt(0) + " " + cells.charAt(1) + " " + cells.charAt(2) + " |");
-        System.out.println("| " + cells.charAt(3) + " " + cells.charAt(4) + " " + cells.charAt(5) + " |");
-        System.out.println("| " + cells.charAt(6) + " " + cells.charAt(7) + " " + cells.charAt(8) + " |");
+            }
+            System.out.println("");
+        }
         System.out.println("---------");
 
 
         chkState(cells);
 
     }
-    public static void chkState (String cells){
-        if (cells.length() < 9 || cells.length() > 9) {
-            System.out.println("Impossible");
-        } else if (winX(cells)&&winO(cells)) {
-            System.out.println("Impossible");
 
+    public static void chkState(String cells) {
+        if (cells.length() != 9) {
+            System.out.println("Impossible");
+        } else if (winX(cells) && winO(cells)) {
+            System.out.println("Impossible");
 
 
         } else if (winX(cells)) {
@@ -59,6 +65,7 @@ public class Main {
         }
 
     }
+
     public static boolean winX(String smth) {
         if (smth.charAt(0) == 'X' && smth.charAt(1) == 'X' && smth.charAt(2) == 'X') {
             return true;
@@ -82,6 +89,7 @@ public class Main {
 
 
     }
+
     public static boolean winO(String smth) {
         if (smth.charAt(0) == 'O' && smth.charAt(1) == 'O' && smth.charAt(2) == 'O') {
             return true;
@@ -102,8 +110,31 @@ public class Main {
         } else {
             return false;
         }
+    }
+
+    public static void createAndPrintField(char[][] feld, String cells) {
+        int cellsI = 0;
+        System.out.println("---------");
+        for (int i = 0; i < feld.length; i++) {
+            for (int k = 0; k < feld[i].length; k++) {
+
+                if (cellsI < 9) {
+                    feld[i][k] = cells.charAt(cellsI);
+                    cellsI++;
+                }
+            }
+
+        }
+
+    }
 
 
+    public static void userInput(Scanner scanner, char[][] feld) {
+        int[] userInput = new int[2];
+        userInput[0] = scanner.nextInt()-1;
+        userInput[1] = scanner.nextInt()-1;
+
+        feld[userInput[0]][userInput[1]] = 'X';
     }
 
 
